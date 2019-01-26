@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private Transform groundCheck;
     [SerializeField]
+    private float stepSize = 0.001f;
+    [SerializeField]
     private LayerMask groundLayerMask;
     [SerializeField]
     private LayerMask propsLayerMask;
@@ -61,8 +63,14 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D rigidbody;
     private PlayerPowerUp playerPowerUp;
+    private PlayerSound playerSound;
+
+    private Vector3 lastPosition;
+    private float amountWalked;
 
     void Awake () {
+        playerSound = GetComponent<PlayerSound>();
+
         rigidbody = GetComponent<Rigidbody2D> ();
         playerPowerUp = GetComponent<PlayerPowerUp>();
         gravity = -Physics2D.gravity.y;
@@ -71,7 +79,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update () {
 
         //just a button to restart the level for easy test
-        if(Input.GetKeyDown("r"))
+        if(Input.GetKeyDown(KeyCode.R))
         {
             Scene LoadLevel = SceneManager.GetActiveScene();
             SceneManager.LoadScene(LoadLevel.buildIndex);
@@ -87,11 +95,14 @@ public class PlayerMovement : MonoBehaviour {
 
         bool lastGrounded = isGrounded;
         isGrounded = Physics2D.OverlapBox (groundCheck.position, new Vector2(.9f, .5f), 0f, groundLayerMask) != null;
+        
+        if(isGrounded) Step();
 
         if(lastGrounded != isGrounded) {
             
             if(isGrounded)
             {
+
                 if(bounciness <= 0f)
                 {
                     moveVelocity.y = 0f;
@@ -109,6 +120,17 @@ public class PlayerMovement : MonoBehaviour {
 
             }
         }
+
+    }
+
+    void Step()
+    {
+        amountWalked += Mathf.Abs(lastPosition.magnitude - transform.position.magnitude);
+        lastPosition = transform.position;
+        if(amountWalked >= stepSize) {
+            amountWalked = 0f;
+            playerSound.PlayWalk();
+        }
     }
 
     public void Jump()
@@ -119,6 +141,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else if(isGrounded || currentExtendedGroundedTime > 0)
         {
+            playerSound.PlayJump();
             currentExtendedGroundedTime = 0;
             moveVelocity.y = Mathf.Sqrt (jumpHeight * gravity * 2f);
         }
@@ -127,6 +150,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void Kick()
     {
+        playerSound.PlayKick();
+
         Collider2D collider = Physics2D.OverlapBox(transform.position + (LookingDirection * Vector3.right * 2f), Vector2.one, 0f, propsLayerMask);
         if(collider)
         {

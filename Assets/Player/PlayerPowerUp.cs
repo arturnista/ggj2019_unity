@@ -11,9 +11,12 @@ public class PlayerPowerUp : MonoBehaviour
     }
 
     private SpriteRenderer powerUpSpriteRenderer;
+    private PlayerSound playerSound;
 
     void Awake()
     {
+        playerSound = GetComponent<PlayerSound>();
+
         powerUpSpriteRenderer = transform.Find("PowerUpSprite").GetComponent<SpriteRenderer>();
         powerUpSpriteRenderer.gameObject.SetActive(false);
     }
@@ -32,6 +35,7 @@ public class PlayerPowerUp : MonoBehaviour
             PowerUpObject pickup = coll.GetComponent<PowerUpObject>();            
             if(pickup)
             {
+                playerSound.PlayPickupPowerUp();
                 currentPowerUp = pickup.GetPowerUp(this.gameObject);
                 powerUpSpriteRenderer.gameObject.SetActive(true);
                 powerUpSpriteRenderer.sprite = currentPowerUp.Sprite;
@@ -46,6 +50,7 @@ public class PlayerPowerUp : MonoBehaviour
 
     public void Drop(Vector2 baseVelocity) 
     {
+        playerSound.PlayDropPowerUp();
         powerUpSpriteRenderer.gameObject.SetActive(false);
         currentPowerUp.Remove(this.gameObject, baseVelocity);
         currentPowerUp = null;
