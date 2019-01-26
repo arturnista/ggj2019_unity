@@ -5,11 +5,9 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Create PlayerInputSchema")]
 public class PlayerInputSchema : ScriptableObject {
 
-    public KeyCode Right = KeyCode.D;
-    public KeyCode Left = KeyCode.A;
+    public string Axis = "Horizontal";
+    [Space]
     public KeyCode Jump = KeyCode.Space;
     public KeyCode Pickup = KeyCode.E;
-
-    public string Axis = "Horizontal";
 
 }

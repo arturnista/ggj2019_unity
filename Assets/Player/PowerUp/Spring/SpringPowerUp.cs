@@ -16,6 +16,6 @@ public class SpringPowerUp : PowerUp
     public override void Remove(GameObject gameObject) {
         PlayerMovement playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerMovement.JumpHeight -= jumpIncrease;
-        DropPowerUp(gameObject.transform.position);
+        DropPowerUp(gameObject.transform.position, playerMovement.MoveVelocity);
     }
 }

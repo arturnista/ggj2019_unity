@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3761a23c715ef954a894e1ba0107eaf0, type: 3}
   m_Name: Joystick
   m_EditorClassIdentifier: 
-  Right: 27
-  Left: 32
+  Axis: Horizontal
   Jump: 330
-  Pickup: 35
-  Axis: DpadHorizontal
+  Pickup: 332

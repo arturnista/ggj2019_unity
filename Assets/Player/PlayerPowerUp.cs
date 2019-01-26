@@ -7,9 +7,12 @@ public class PlayerPowerUp : MonoBehaviour
 
     private PowerUp currentPowerUp;
 
-    void Start()
+    private SpriteRenderer powerUpSpriteRenderer;
+
+    void Awake()
     {
-        
+        powerUpSpriteRenderer = transform.Find("PowerUpSprite").GetComponent<SpriteRenderer>();
+        powerUpSpriteRenderer.gameObject.SetActive(false);
     }
 
     public void PickUpAction()
@@ -27,12 +30,15 @@ public class PlayerPowerUp : MonoBehaviour
             if(pickup)
             {
                 currentPowerUp = pickup.GetPowerUp(this.gameObject);
+                powerUpSpriteRenderer.gameObject.SetActive(true);
+                powerUpSpriteRenderer.sprite = currentPowerUp.Sprite;
             }
         }
     }
 
     void Drop() 
     {
+        powerUpSpriteRenderer.gameObject.SetActive(false);
         currentPowerUp.Remove(this.gameObject);
         currentPowerUp = null;
     }

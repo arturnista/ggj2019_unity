@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector2 desirableVelocity;
     private Vector2 moveVelocity;
+    public Vector2 MoveVelocity {
+        get { return moveVelocity; }
+    }
 
     private float gravity;
     private float horizontalSpeed;

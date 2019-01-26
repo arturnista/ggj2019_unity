@@ -297,8 +297,8 @@ InputManager:
     m_Name: DpadHorizontal
     descriptiveName: Control
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: escape
+    negativeButton: left
+    positiveButton: right
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
