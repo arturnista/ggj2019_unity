@@ -15,10 +15,10 @@ public class SpringPowerUp : PowerUp
         playerMovement.Bounciness = Bounciness;
     }
 
-    public override void Remove(GameObject gameObject) {
+    public override void Remove(GameObject gameObject, Vector2 baseVelocity) {
         PlayerMovement playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerMovement.JumpHeight -= JumpIncrease;
         playerMovement.Bounciness = 0f;
-        DropPowerUp(gameObject.transform.position, playerMovement.MoveVelocity);
+        DropPowerUp(gameObject.transform.position, playerMovement.MoveVelocity + baseVelocity);
     }
 }

@@ -39,10 +39,15 @@ public class PlayerPowerUp : MonoBehaviour
         }
     }
 
-    public void Drop() 
+    public void Drop()
+    {
+        Drop(Vector2.zero);    
+    } 
+
+    public void Drop(Vector2 baseVelocity) 
     {
         powerUpSpriteRenderer.gameObject.SetActive(false);
-        currentPowerUp.Remove(this.gameObject);
+        currentPowerUp.Remove(this.gameObject, baseVelocity);
         currentPowerUp = null;
     }
 

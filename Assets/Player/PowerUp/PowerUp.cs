@@ -8,8 +8,6 @@ public abstract class PowerUp : ScriptableObject
     public Sprite Sprite;
     public GameObject Prefab;
 
-    public int Lifes;
-
     public void DropPowerUp(Vector3 pos, Vector3 baseVelocity)
     {
         GameObject gameObject = Instantiate(Prefab, pos + Vector3.up, Quaternion.identity) as GameObject;
@@ -24,5 +22,10 @@ public abstract class PowerUp : ScriptableObject
     }
 
     public abstract void Apply(GameObject effect);
-    public abstract void Remove(GameObject effect);
+    public virtual void Remove(GameObject effect, Vector2 baseVelocity) {
+        
+    }
+    public void Remove(GameObject effect) {
+        Remove(effect, Vector3.zero);
+    }
 }

@@ -10,8 +10,8 @@ public class BootPowerUp : PowerUp
         
     }
 
-    public override void Remove(GameObject gameObject) {
+    public override void Remove(GameObject gameObject, Vector2 baseVelocity) {
         PlayerMovement playerMovement = gameObject.GetComponent<PlayerMovement>();
-        DropPowerUp(gameObject.transform.position, playerMovement.MoveVelocity);
+        DropPowerUp(gameObject.transform.position, baseVelocity + playerMovement.MoveVelocity);
     }
 }
