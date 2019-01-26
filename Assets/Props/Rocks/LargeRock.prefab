@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 2000882687153407084}
   - component: {fileID: 2000882687153407082}
   - component: {fileID: 8520460918059905537}
-  - component: {fileID: 2000882687153407087}
   m_Layer: 9
   m_Name: LargeRock
   m_TagString: Untagged
@@ -164,15 +163,3 @@ PolygonCollider2D:
       - {x: -1.7680631, y: -1.2126616}
       - {x: 1.7527351, y: -1.1155826}
       - {x: 0.9510565, y: 0.30901712}
---- !u!114 &2000882687153407087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000882687153407086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1a41e85b0f399459a43644ff3749e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
