@@ -20,11 +20,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void DealDamage()
     {
-        if(playerPowerUp.CurrentPowerUp) {
+        if(playerPowerUp.Holder.CurrentPowerUp) {
             //aqui vai o ifzão pra deixar o capacete
-            if(playerPowerUp.CurrentPowerUp is HelmetPowerUp)
+            if(playerPowerUp.Holder.CurrentPowerUp is HelmetPowerUp)
             {
-                HelmetPowerUp helmet = (HelmetPowerUp)playerPowerUp.CurrentPowerUp;
+                HelmetPowerUp helmet = (HelmetPowerUp)playerPowerUp.Holder.CurrentPowerUp;
                 //acionar particula pra mostrar q bateu e fazer som quando a gente for botar som
                 if(helmet.DealDamage())
                 {

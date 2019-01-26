@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour {
     public void Jump()
     {
 
-        if(playerPowerUp.CurrentPowerUp is BootPowerUp) {
+        if(playerPowerUp.Holder.CurrentPowerUp is BootPowerUp) {
             Kick();
         }
         else if(isGrounded || currentExtendedGroundedTime > 0)
@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour {
             if(kickable)
             {
                 CameraShaker.Instance.ShakeOnce(3f, 5f, .1f, .2f);
-                kickable.Kick(LookingDirection * Vector2.right * 20f);
+                kickable.Kick(LookingDirection * Vector2.right * 5f);
             }
         }
     }

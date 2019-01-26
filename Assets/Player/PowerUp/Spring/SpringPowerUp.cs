@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpringPowerUp : PowerUp
 {
     
-    public int JumpIncrease;
+    public float JumpIncrease;
     public float Bounciness = .5f;
 
     public override void Apply(GameObject gameObject) {

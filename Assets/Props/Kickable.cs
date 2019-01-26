@@ -12,7 +12,7 @@ public class Kickable : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    public void Kick(Vector2 force)
+    public virtual void Kick(Vector2 force)
     {
         rigidbody.velocity = force;
     }

@@ -19,6 +19,6 @@ public class MenuHUDController : MonoBehaviour
 
     void LoadMainScene()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Level01");
     }
 }

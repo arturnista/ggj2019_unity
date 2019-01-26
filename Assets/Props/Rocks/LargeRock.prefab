@@ -65,10 +65,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2b1e73468fcb6c46aa3dc6bca862155, type: 3}
+  m_SortingLayerID: 2016602715
+  m_SortingLayer: -1
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: c2a70ac5c7c605d43a31747855e58057, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2000882687153407084}
   - component: {fileID: 2000882687153407082}
   - component: {fileID: 8520460918059905537}
+  - component: {fileID: 1384695361}
   m_Layer: 9
   m_Name: LargeRock
   m_TagString: Untagged
@@ -158,8 +159,21 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.08686018, y: 1.1072981}
-      - {x: -1.0890112, y: 0.87616336}
-      - {x: -1.7680631, y: -1.2126616}
-      - {x: 1.7527351, y: -1.1155826}
-      - {x: 0.9510565, y: 0.30901712}
+    - - {x: -0.8126633, y: 1.32519}
+      - {x: -1.0537534, y: 0.54497796}
+      - {x: -2.031205, y: -0.36526734}
+      - {x: -2.2248702, y: -1.45947}
+      - {x: 1.9630289, y: -1.3298602}
+      - {x: 1.943531, y: 1.2089877}
+--- !u!114 &1384695361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000882687153407086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6b0ecf516b4cd4b925eed2df55aa69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

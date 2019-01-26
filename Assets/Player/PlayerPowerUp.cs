@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerPowerUp : MonoBehaviour
 {
 
-    private PowerUp currentPowerUp;
-    public PowerUp CurrentPowerUp {
-        get { return currentPowerUp; }
+    [SerializeField]
+    private PowerUpHolder holder;
+    public PowerUpHolder Holder {
+        get { return holder; }
     }
 
     private SpriteRenderer powerUpSpriteRenderer;
@@ -19,11 +20,17 @@ public class PlayerPowerUp : MonoBehaviour
 
         powerUpSpriteRenderer = transform.Find("PowerUpSprite").GetComponent<SpriteRenderer>();
         powerUpSpriteRenderer.gameObject.SetActive(false);
+
+        if(Holder.CurrentPowerUp)
+        {
+            PickUpPower(Holder.CurrentPowerUp);
+            Holder.CurrentPowerUp.Apply(this.gameObject);
+        }
     }
 
     public void PickUpAction()
     {
-        if(!currentPowerUp) PickUp();
+        if(!Holder.CurrentPowerUp) PickUp();
         else Drop();
     }
 
@@ -36,11 +43,16 @@ public class PlayerPowerUp : MonoBehaviour
             if(pickup)
             {
                 playerSound.PlayPickupPowerUp();
-                currentPowerUp = pickup.GetPowerUp(this.gameObject);
-                powerUpSpriteRenderer.gameObject.SetActive(true);
-                powerUpSpriteRenderer.sprite = currentPowerUp.Sprite;
+                PickUpPower(pickup.GetPowerUp(this.gameObject));
             }
         }
+    }
+
+    void PickUpPower(PowerUp power)
+    {
+        Holder.CurrentPowerUp = power;
+        powerUpSpriteRenderer.gameObject.SetActive(true);
+        powerUpSpriteRenderer.sprite = Holder.CurrentPowerUp.Sprite;
     }
 
     public void Drop()
@@ -52,8 +64,8 @@ public class PlayerPowerUp : MonoBehaviour
     {
         playerSound.PlayDropPowerUp();
         powerUpSpriteRenderer.gameObject.SetActive(false);
-        currentPowerUp.Remove(this.gameObject, baseVelocity);
-        currentPowerUp = null;
+        Holder.CurrentPowerUp.Remove(this.gameObject, baseVelocity);
+        Holder.CurrentPowerUp = null;
     }
 
 }
