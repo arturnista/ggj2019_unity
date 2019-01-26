@@ -8,6 +8,8 @@ public abstract class PowerUp : ScriptableObject
     public Sprite Sprite;
     public GameObject Prefab;
 
+    public int Lifes;
+
     public void DropPowerUp(Vector3 pos, Vector3 baseVelocity)
     {
         GameObject gameObject = Instantiate(Prefab, pos + Vector3.up, Quaternion.identity) as GameObject;

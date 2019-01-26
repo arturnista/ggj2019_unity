@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -68,6 +69,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update () {
+
+        //just a button to restart the level for easy test
+        if(Input.GetKeyDown("r"))
+        {
+            Scene LoadLevel = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(LoadLevel.buildIndex);
+        }
+
         if(Mathf.Abs(moveVelocity.x) > 1f) lookingDirection = Mathf.Sign(moveVelocity.x);
 
         currentExtendedGroundedTime -= Time.deltaTime;
