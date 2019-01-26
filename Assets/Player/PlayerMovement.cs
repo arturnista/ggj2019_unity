@@ -23,6 +23,12 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private Transform groundCheck;
     [SerializeField]
+    private Transform rightCheck;
+    [SerializeField]
+    private Transform leftCheck;
+    [SerializeField]
+    private Transform ceilCheck;
+    [SerializeField]
     private float stepSize = 0.001f;
     [SerializeField]
     private LayerMask groundLayerMask;
@@ -166,6 +172,10 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate ()
     {
+        if(moveVelocity.x > 0 && Physics2D.OverlapBox (rightCheck.position, new Vector2(.5f, .9f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
+        else if(moveVelocity.x < 0 && Physics2D.OverlapBox (leftCheck.position, new Vector2(.5f, .9f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
+        else if(moveVelocity.y > 0 && Physics2D.OverlapBox (ceilCheck.position, new Vector2(.9f, .5f), 0f, groundLayerMask) != null) moveVelocity.y = 0f;
+
         rigidbody.velocity = moveVelocity;
         if (!isGrounded)
         {

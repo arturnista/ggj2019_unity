@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2000882687153407084}
   - component: {fileID: 2000882687153407082}
   - component: {fileID: 8811675386065676971}
+  - component: {fileID: 1098152882578044054}
   m_Layer: 9
   m_Name: MediumRock
   m_TagString: Untagged
@@ -106,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 2000882687153407086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.33, y: -0.9, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 2000882686275158478}
   m_Father: {fileID: 0}
@@ -164,3 +165,15 @@ PolygonCollider2D:
       - {x: -1.555549, y: -0.76709604}
       - {x: 1.5843335, y: -0.7157264}
       - {x: 1.5130335, y: 0.60191655}
+--- !u!114 &1098152882578044054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000882687153407086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6b0ecf516b4cd4b925eed2df55aa69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
