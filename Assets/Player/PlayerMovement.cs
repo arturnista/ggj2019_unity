@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour {
     }
     [SerializeField]
     private Transform groundCheck;
+    [SerializeField]
+    private LayerMask groundLayerMask;
+    [SerializeField]
+    private LayerMask propsLayerMask;
 
     private float bounciness;
     public float Bounciness {
@@ -73,7 +77,7 @@ public class PlayerMovement : MonoBehaviour {
         moveVelocity.x = Mathf.MoveTowards (moveVelocity.x, desirableVelocity.x, acceleration * Time.deltaTime);
 
         bool lastGrounded = isGrounded;
-        isGrounded = Physics2D.OverlapCircle (groundCheck.position, .25f, 1 << LayerMask.NameToLayer ("Ground")) != null;
+        isGrounded = Physics2D.OverlapBox (groundCheck.position, new Vector2(.9f, .5f), 0f, groundLayerMask) != null;
 
         if(lastGrounded != isGrounded) {
             
@@ -114,7 +118,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Kick()
     {
-        Collider2D collider = Physics2D.OverlapBox(transform.position + (LookingDirection * Vector3.right * 2f), Vector2.one, 0f, 1 << LayerMask.NameToLayer("Kickable"));
+        Collider2D collider = Physics2D.OverlapBox(transform.position + (LookingDirection * Vector3.right * 2f), Vector2.one, 0f, propsLayerMask);
         if(collider)
         {
             Kickable kickable = collider.GetComponent<Kickable>();
