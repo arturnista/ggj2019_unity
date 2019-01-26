@@ -32,7 +32,7 @@ public class SeagullSpawner : MonoBehaviour
 
             Vector2 cameraSize = Utils.Instance.GetCameraSize();
 
-            Vector3 spawnPosition = new Vector3(Random.Range(-cameraSize.x, cameraSize.x), playerMovement.transform.position.y + cameraSize.y);
+            Vector3 spawnPosition = new Vector3(playerMovement.transform.position.x + Random.Range(-cameraSize.x, cameraSize.x), playerMovement.transform.position.y + (cameraSize.y + 2f) * 2f);
             Instantiate(seagullPrefab, spawnPosition, Quaternion.identity);
         }
 

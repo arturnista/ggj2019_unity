@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034cb6b71b3ea344fba451a1f6c2d47c, type: 3}
   m_Name: Helmet
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 0}
-  Prefab: {fileID: 0}
-  Lifes: 0
-  life: 0
+  Sprite: {fileID: 21300000, guid: 558e01d8efb636a4b9469c3320200b5f, type: 3}
+  Prefab: {fileID: 2614042086874110622, guid: ca404491cbd325242ac940deca5d8205, type: 3}
+  MaxLife: 3

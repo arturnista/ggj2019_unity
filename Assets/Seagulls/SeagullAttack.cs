@@ -7,6 +7,8 @@ public class SeagullAttack : MonoBehaviour
 
     [SerializeField]
     private float moveSpeed = 5f;
+
+    private float currentMoveSpeed = 5f;
     
     private PlayerMovement playerMovement;
     private Vector3 targetPosition;
@@ -25,7 +27,7 @@ public class SeagullAttack : MonoBehaviour
         targetPosition = playerMovement.transform.position;
         transform.rotation = ComputeRotation();
 
-        rotationSpeed = 10f;
+        rotationSpeed = 50f;
 
         isAttacking = true;
     }
@@ -38,17 +40,24 @@ public class SeagullAttack : MonoBehaviour
             targetPosition = playerMovement.transform.position;
             desirableRotation = ComputeRotation(); 
 
-            if(transform.position.y <= playerMovement.transform.position.y) {
-                rotationSpeed = 50f;
-                targetPosition = new Vector3(transform.position.x + (Mathf.Sign(rigidbody.velocity.x) * 30f), 50f);
-                desirableRotation = ComputeRotation(); 
-                isAttacking = false;
-            }
+            if(transform.position.y <= playerMovement.transform.position.y) StopAttacking();
             
         }
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, desirableRotation, rotationSpeed * Time.deltaTime);
-        rigidbody.velocity = transform.up * moveSpeed;
+        currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, moveSpeed, 5f * Time.deltaTime);
+        rigidbody.velocity = transform.up * currentMoveSpeed;
+    }
+
+    void StopAttacking()
+    {
+        
+        rotationSpeed = 50f;
+        targetPosition = new Vector3(transform.position.x + (Mathf.Sign(rigidbody.velocity.x) * 30f), 50f);
+        desirableRotation = ComputeRotation(); 
+        moveSpeed = moveSpeed / 2f;
+        isAttacking = false;
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)

@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - Props
   - Player
-  - 
+  - PlayerTrigger
   - PowerUp
   - 
   - Kickable
