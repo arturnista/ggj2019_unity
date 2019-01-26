@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnDelay: 3
-  seagullPrefab: {fileID: 2070155464759183907}
+  seagullPrefab: {fileID: 8093869148294207179, guid: 646d9330c05d81b4aae51d931e0bd8de,
+    type: 3}

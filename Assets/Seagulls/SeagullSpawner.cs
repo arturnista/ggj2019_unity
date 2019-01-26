@@ -10,9 +10,12 @@ public class SeagullSpawner : MonoBehaviour
     [SerializeField]
     private GameObject seagullPrefab;
 
+    private PlayerMovement playerMovement;
+
 
     void Awake()
     {
+        playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
         StartCoroutine(Respawn());
     }
 
@@ -27,7 +30,9 @@ public class SeagullSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnDelay);
 
-            Vector3 spawnPosition = new Vector3(Random.Range(-19f, 19f), 10f);
+            Vector2 cameraSize = Utils.Instance.GetCameraSize();
+
+            Vector3 spawnPosition = new Vector3(Random.Range(-cameraSize.x, cameraSize.x), playerMovement.transform.position.y + cameraSize.y);
             Instantiate(seagullPrefab, spawnPosition, Quaternion.identity);
         }
 

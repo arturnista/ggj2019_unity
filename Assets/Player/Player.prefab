@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 100
   moveSpeed: 10
-  jumpHeight: 2
+  jumpHeight: 1.3
   groundCheck: {fileID: 2364557515707992938}
   groundLayerMask:
     serializedVersion: 2

@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    private PlayerPowerUp playerPowerUp;
+    
+    void Awake()
+    {
+        playerPowerUp = GetComponent<PlayerPowerUp>();
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DealDamage()
     {
-        
+        if(playerPowerUp.CurrentPowerUp) {
+            playerPowerUp.Drop();
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+            // Destroy(this.gameObject);
+        }
     }
 }
