@@ -183,13 +183,18 @@ PrefabInstance:
         type: 3}
       propertyPath: inputSchema
       value: 
-      objectReference: {fileID: 11400000, guid: 8f11b855f30674a4984a0d517858f804,
+      objectReference: {fileID: 11400000, guid: 7a615d4b71a9cc140828fed0a2855d5a,
         type: 2}
+    - target: {fileID: 6504329834046295636, guid: e76e4209eae25f74b8a2d876c1393d6d,
+        type: 3}
+      propertyPath: acceleration
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7547453642170677189, guid: e76e4209eae25f74b8a2d876c1393d6d,
         type: 3}
       propertyPath: inputSchema
       value: 
-      objectReference: {fileID: 11400000, guid: 8f11b855f30674a4984a0d517858f804,
+      objectReference: {fileID: 11400000, guid: 7a615d4b71a9cc140828fed0a2855d5a,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e76e4209eae25f74b8a2d876c1393d6d, type: 3}

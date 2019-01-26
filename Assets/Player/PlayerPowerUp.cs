@@ -5,9 +5,6 @@ using UnityEngine;
 public class PlayerPowerUp : MonoBehaviour
 {
 
-    [SerializeField]
-    private PlayerInputSchema inputSchema;
-
     private PowerUp currentPowerUp;
 
     void Start()
@@ -15,12 +12,10 @@ public class PlayerPowerUp : MonoBehaviour
         
     }
 
-    void Update()
+    public void PickUpAction()
     {
-        if(Input.GetKeyDown(inputSchema.Pickup)) {
-            if(!currentPowerUp) PickUp();
-            else Drop();
-        }
+        if(!currentPowerUp) PickUp();
+        else Drop();
     }
 
     void PickUp() 
