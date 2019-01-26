@@ -10,6 +10,6 @@ public class PlayerInputSchema : ScriptableObject {
     public KeyCode Jump = KeyCode.Space;
     public KeyCode Pickup = KeyCode.E;
 
-    public string DpadHor = "DpadHorizontal";
+    public string Axis = "Horizontal";
 
 }

@@ -40,12 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update () {
 
-        float horizontal = 0f;
-        //if (Input.GetKey (inputSchema.Right)) horizontal = 1f;
-        //else if (Input.GetKey (inputSchema.Left)) horizontal = -1f;
-
-        horizontal = Input.GetAxis("DpadHorizontal");
-       //Input.GetKey("X Axis"));
+        float horizontal = Input.GetAxisRaw(inputSchema.Axis);
 
         desirableVelocity.x = horizontal * moveSpeed;
 

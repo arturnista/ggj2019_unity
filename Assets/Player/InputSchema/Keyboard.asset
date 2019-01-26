@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Right: 100
   Left: 97
-  Jump: 330
+  Jump: 32
   Pickup: 101
-  DpadHor: DpadHorizontal
+  Axis: Horizontal
