@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName="Create SpringPowerUp")]
+[CreateAssetMenu (menuName="PowerUp/Create SpringPowerUp")]
 public class SpringPowerUp : PowerUp
 {
     
-    public int jumpIncrease;
+    public int JumpIncrease;
+    public float Bounciness = .5f;
 
     public override void Apply(GameObject gameObject) {
         PlayerMovement playerMovement = gameObject.GetComponent<PlayerMovement>();
-        playerMovement.JumpHeight += jumpIncrease;
+        playerMovement.JumpHeight += JumpIncrease;
+        playerMovement.Bounciness = Bounciness;
     }
 
     public override void Remove(GameObject gameObject) {
         PlayerMovement playerMovement = gameObject.GetComponent<PlayerMovement>();
-        playerMovement.JumpHeight -= jumpIncrease;
+        playerMovement.JumpHeight -= JumpIncrease;
+        playerMovement.Bounciness = 0f;
         DropPowerUp(gameObject.transform.position, playerMovement.MoveVelocity);
     }
 }

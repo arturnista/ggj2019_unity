@@ -16,8 +16,8 @@ public abstract class PowerUp : ScriptableObject
 
         Rigidbody2D rigid = gameObject.GetComponent<Rigidbody2D>();
         rigid.velocity = new Vector2(
-            baseVelocity.x + ( Mathf.Sign(baseVelocity.x) * 10f ), 
-            baseVelocity.y + ( Mathf.Sign(baseVelocity.y) * 5f )
+            baseVelocity.x + ( baseVelocity.x < 1f ? 0f : Mathf.Sign(baseVelocity.x) * 1.1f ), 
+            baseVelocity.y + 5f
         );
     }
 

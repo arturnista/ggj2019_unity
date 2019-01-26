@@ -6,6 +6,9 @@ public class PlayerPowerUp : MonoBehaviour
 {
 
     private PowerUp currentPowerUp;
+    public PowerUp CurrentPowerUp {
+        get { return currentPowerUp; }
+    }
 
     private SpriteRenderer powerUpSpriteRenderer;
 
