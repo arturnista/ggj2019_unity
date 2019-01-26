@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour {
     private float moveSpeed;
     [SerializeField]
     private float jumpHeight;
+    [SerializeField]
+    private Transform groundCheck;
 
     private Vector2 desirableVelocity;
     private Vector2 moveVelocity;
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour {
 
         moveVelocity.x = Mathf.MoveTowards (velocity.x, desirableVelocity.x, acceleration);
 
-        isGrounded = Physics2D.OverlapCircle (transform.position, .51f, 1 << LayerMask.NameToLayer ("Ground")) != null;
+        isGrounded = Physics2D.OverlapCircle (groundCheck.position, .25f, 1 << LayerMask.NameToLayer ("Ground")) != null;
         if (isGrounded) {
             moveVelocity.y = 0f;
             if (Input.GetKeyDown (inputSchema.Jump)) moveVelocity.y = Mathf.Sqrt (jumpHeight * gravity * 2f);
