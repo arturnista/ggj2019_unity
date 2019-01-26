@@ -41,8 +41,11 @@ public class PlayerMovement : MonoBehaviour {
     void Update () {
 
         float horizontal = 0f;
-        if (Input.GetKey (inputSchema.Right)) horizontal = 1f;
-        else if (Input.GetKey (inputSchema.Left)) horizontal = -1f;
+        //if (Input.GetKey (inputSchema.Right)) horizontal = 1f;
+        //else if (Input.GetKey (inputSchema.Left)) horizontal = -1f;
+
+        horizontal = Input.GetAxis("DpadHorizontal");
+       //Input.GetKey("X Axis"));
 
         desirableVelocity.x = horizontal * moveSpeed;
 
@@ -55,6 +58,8 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             moveVelocity.y -= gravity * Time.deltaTime;
         }
+
+        if (Input.GetKeyDown(inputSchema.Pickup)) Debug.Log("pickup");
 
     }
 

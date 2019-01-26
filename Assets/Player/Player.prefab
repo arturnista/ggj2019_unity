@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 6504329834046295625}
   - component: {fileID: 6504329834046295627}
   - component: {fileID: 6504329834046295626}
+  - component: {fileID: 4409129935943086690}
   - component: {fileID: 6504329834046295636}
   - component: {fileID: 7547453642170677189}
   m_Layer: 10
@@ -192,6 +193,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &4409129935943086690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504329834046295624}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f91a0af7451734fa9c7ff56b7ab48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6504329834046295636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638ce630970cb8146af74fd6ec6caae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputSchema: {fileID: 11400000, guid: 7a615d4b71a9cc140828fed0a2855d5a, type: 2}
+  inputSchema: {fileID: 11400000, guid: 8f11b855f30674a4984a0d517858f804, type: 2}
   acceleration: 100
   moveSpeed: 10
   jumpHeight: 2
