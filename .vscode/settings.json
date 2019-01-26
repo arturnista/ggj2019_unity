@@ -52,5 +52,7 @@
         "ProjectSettings/":true,
         "temp/":true,
         "Temp/":true
-    }
+    },
+    "csharp.format.enable": false,
+    "csharpfixformat.sort.usings.enabled": false
 }
