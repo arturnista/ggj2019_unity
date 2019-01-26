@@ -12,6 +12,14 @@ public class PlayerMovement : MonoBehaviour {
     private float moveSpeed;
     [SerializeField]
     private float jumpHeight;
+    public float JumpHeight {
+        get {
+            return jumpHeight;
+        }
+        set {
+            jumpHeight = value;
+        }
+    }
     [SerializeField]
     private Transform groundCheck;
 
