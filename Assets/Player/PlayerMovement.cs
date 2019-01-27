@@ -70,19 +70,58 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D rigidbody;
     private PlayerPowerUp playerPowerUp;
     private PlayerSound playerSound;
+    private SpriteRenderer spriteRenderer;
 
     private Vector3 lastPosition;
     private float amountWalked;
 
+    private bool isInverted = false;
+    private Vector3 normalScale = new Vector3(1f, 1f, 1f);
+    private Vector3 invertedScale = new Vector3(-1f, 1f, 1f);
+
+    private Animator animator;
+    float horizontalMove = 0f;
+
     void Awake () {
         playerSound = GetComponent<PlayerSound>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         rigidbody = GetComponent<Rigidbody2D> ();
         playerPowerUp = GetComponent<PlayerPowerUp>();
         gravity = -Physics2D.gravity.y;
+      
     }
 
     void Update () {
+
+        animator.SetFloat("MoveSpeed", Mathf.Abs(HorizontalSpeed));
+       
+        if(HorizontalSpeed < 0)
+        {
+            if(!isInverted)
+            {
+                // spriteRenderer.flipX = true;
+                transform.localScale = invertedScale;
+                // GetComponentInChildren<SpriteRenderer>().enabled=false;
+            }
+            isInverted = true;
+        }
+        else if (HorizontalSpeed > 0)
+        {
+            if(isInverted)
+            {
+                // spriteRenderer.flipX = false;
+                transform.localScale = normalScale;
+                // GetComponentInChildren<SpriteRenderer>().enabled=false;
+            }
+            isInverted = false;
+        }
+        else{
+            //GetComponentInChildren<SpriteRenderer>().enabled=true;
+        }
+
+
 
         //just a button to restart the level for easy test
         if(Input.GetKeyDown(KeyCode.R))
@@ -98,6 +137,7 @@ public class PlayerMovement : MonoBehaviour {
         desirableVelocity.x = horizontalSpeed * moveSpeed;
 
         moveVelocity.x = Mathf.MoveTowards (moveVelocity.x, desirableVelocity.x, acceleration * Time.deltaTime);
+
 
         bool lastGrounded = isGrounded;
         isGrounded = Physics2D.OverlapBox (groundCheck.position, new Vector2(.9f, .5f), 0f, groundLayerMask) != null;
@@ -136,6 +176,7 @@ public class PlayerMovement : MonoBehaviour {
         if(amountWalked >= stepSize) {
             amountWalked = 0f;
             playerSound.PlayWalk();
+            
         }
     }
 
@@ -150,6 +191,7 @@ public class PlayerMovement : MonoBehaviour {
             playerSound.PlayJump();
             currentExtendedGroundedTime = 0;
             moveVelocity.y = Mathf.Sqrt (jumpHeight * gravity * 2f);
+           
         }
 
     }
@@ -172,14 +214,25 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate ()
     {
-        if(moveVelocity.x > 0 && Physics2D.OverlapBox (rightCheck.position, new Vector2(.5f, .9f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
-        else if(moveVelocity.x < 0 && Physics2D.OverlapBox (leftCheck.position, new Vector2(.5f, .9f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
-        else if(moveVelocity.y > 0 && Physics2D.OverlapBox (ceilCheck.position, new Vector2(.9f, .5f), 0f, groundLayerMask) != null) moveVelocity.y = 0f;
+        if(!isInverted) {
+            if(moveVelocity.x > 0 && Physics2D.OverlapBox (rightCheck.position, new Vector2(.5f, .5f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
+            else if(moveVelocity.x < 0 && Physics2D.OverlapBox (leftCheck.position, new Vector2(.5f, .5f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
+        } else {
+    
+            if(moveVelocity.x > 0 && Physics2D.OverlapBox (leftCheck.position, new Vector2(.5f, .5f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
+            else if(moveVelocity.x < 0 && Physics2D.OverlapBox (rightCheck.position, new Vector2(.5f, .5f), 0f, groundLayerMask) != null) moveVelocity.x = 0f;
+        }
+        
+        if(moveVelocity.y > 0 && Physics2D.OverlapBox (ceilCheck.position, new Vector2(.9f, .5f), 0f, groundLayerMask) != null) moveVelocity.y = 0f;
 
         rigidbody.velocity = moveVelocity;
         if (!isGrounded)
         {
             moveVelocity.y -= gravity * Time.fixedDeltaTime;
+            animator.SetBool("IsJumping", true);
+        } else {
+            animator.SetBool("IsJumping", false);
         }
+        
     }
 }

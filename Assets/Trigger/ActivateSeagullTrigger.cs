@@ -9,7 +9,8 @@ public class ActivateSeagullTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Destroy(this.gameObject);
+        
         SeagullSpawner.SetActive(true);
+        Destroy(this.gameObject);
     }
 }

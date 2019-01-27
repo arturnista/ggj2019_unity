@@ -1474,31 +1474,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7618712634573294344, guid: b2b564f75c9f4b145a7f39a8875f1b03,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 708.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 7618712634573294344, guid: b2b564f75c9f4b145a7f39a8875f1b03,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1951344995875590907, guid: b2b564f75c9f4b145a7f39a8875f1b03,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 708.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 1951344995875590907, guid: b2b564f75c9f4b145a7f39a8875f1b03,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 8237827210438768074, guid: b2b564f75c9f4b145a7f39a8875f1b03,
         type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1013658441}
+    - target: {fileID: 7618712634573294344, guid: b2b564f75c9f4b145a7f39a8875f1b03,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 708.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618712634573294344, guid: b2b564f75c9f4b145a7f39a8875f1b03,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951344995875590907, guid: b2b564f75c9f4b145a7f39a8875f1b03,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 708.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951344995875590907, guid: b2b564f75c9f4b145a7f39a8875f1b03,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b564f75c9f4b145a7f39a8875f1b03, type: 3}
 --- !u!1001 &9158334177153587429

@@ -11,6 +11,12 @@ public class PlayerPowerUp : MonoBehaviour
         get { return holder; }
     }
 
+    [SerializeField]
+    private Sprite defaultSprite;
+    [SerializeField]
+    private Vector3 defaultPosition;
+    [SerializeField]
+    private Vector3 powerUpPosition;
     private SpriteRenderer powerUpSpriteRenderer;
     private PlayerSound playerSound;
 
@@ -19,7 +25,8 @@ public class PlayerPowerUp : MonoBehaviour
         playerSound = GetComponent<PlayerSound>();
 
         powerUpSpriteRenderer = transform.Find("PowerUpSprite").GetComponent<SpriteRenderer>();
-        powerUpSpriteRenderer.gameObject.SetActive(false);
+        powerUpSpriteRenderer.sprite = defaultSprite;
+        powerUpSpriteRenderer.transform.localPosition = defaultPosition;
 
         if(Holder.CurrentPowerUp)
         {
@@ -51,8 +58,8 @@ public class PlayerPowerUp : MonoBehaviour
     void PickUpPower(PowerUp power)
     {
         Holder.CurrentPowerUp = power;
-        powerUpSpriteRenderer.gameObject.SetActive(true);
         powerUpSpriteRenderer.sprite = Holder.CurrentPowerUp.Sprite;
+        powerUpSpriteRenderer.transform.localPosition = powerUpPosition;
     }
 
     public void Drop()
@@ -63,9 +70,10 @@ public class PlayerPowerUp : MonoBehaviour
     public void Drop(Vector2 baseVelocity) 
     {
         playerSound.PlayDropPowerUp();
-        powerUpSpriteRenderer.gameObject.SetActive(false);
         Holder.CurrentPowerUp.Remove(this.gameObject, baseVelocity);
         Holder.CurrentPowerUp = null;
+        powerUpSpriteRenderer.sprite = defaultSprite;
+        powerUpSpriteRenderer.transform.localPosition = defaultPosition;
     }
 
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3757b7b645d6898458c1c026966d1662, type: 3}
   m_Name: Boot
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 023c293ef19cfc84eb75206f8752f59d, type: 3}
+  Sprite: {fileID: 21300000, guid: b4a7bf01d91331142988ea3790092c45, type: 3}
   Prefab: {fileID: 6220159792809703591, guid: b592321ed7f596b4b88e307bbdf1df1a, type: 3}
