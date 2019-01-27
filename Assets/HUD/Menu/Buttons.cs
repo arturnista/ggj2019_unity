@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
@@ -14,5 +15,35 @@ public class Buttons : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+    public void Bonus()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Controls()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
