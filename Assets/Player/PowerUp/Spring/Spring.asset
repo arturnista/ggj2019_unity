@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035200eb1b352f14885b496b2ac5df2a, type: 3}
   m_Name: Spring
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: ca5c0d2cd8bddba4cb927504d30f3057, type: 3}
+  Sprite: {fileID: 21300000, guid: 7d38f76d3143e6848b430d8fdc4bdc94, type: 3}
   Prefab: {fileID: 8488505968199073730, guid: 1b37b9ffbcbe53d4e835d226fbfc3e2d, type: 3}
   JumpIncrease: 2
   Bounciness: 0.3
