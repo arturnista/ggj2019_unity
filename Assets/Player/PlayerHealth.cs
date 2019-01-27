@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 
+                CameraShaker.Instance.ShakeOnce(10f, 10f, .1f, .2f);
                 playerPowerUp.Drop(new Vector2(
                     Random.Range(-5f, 5f),
                     Random.Range(0f, 5f)
@@ -48,7 +50,10 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+            // this.gameObject.SetActive(false);
+            playerPowerUp.Remove();
+            Scene LoadLevel = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(LoadLevel.buildIndex);
             // Destroy(this.gameObject);
         }
     }

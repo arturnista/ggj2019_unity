@@ -67,6 +67,11 @@ public class PlayerPowerUp : MonoBehaviour
         Drop(Vector2.zero);    
     } 
 
+    public void Remove() 
+    {
+        Holder.CurrentPowerUp = null;
+    }
+
     public void Drop(Vector2 baseVelocity) 
     {
         playerSound.PlayDropPowerUp();

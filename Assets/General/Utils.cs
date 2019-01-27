@@ -24,6 +24,7 @@ public class Utils
 
     public Vector2 GetCameraSize()
     {
+        if(camera == null) camera = Camera.main;
         float vertical = camera.orthographicSize;
         float horizotal = vertical * camera.aspect;
 

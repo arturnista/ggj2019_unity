@@ -7,6 +7,8 @@ public class SeagullAttack : MonoBehaviour
 
     [SerializeField]
     private float moveSpeed = 5f;
+    [SerializeField]
+    private float acc = 2f;
 
     private float currentMoveSpeed = 5f;
     
@@ -43,6 +45,8 @@ public class SeagullAttack : MonoBehaviour
             if(transform.position.y <= playerMovement.transform.position.y) StopAttacking();
             
         }
+
+        moveSpeed += acc * Time.deltaTime;
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, desirableRotation, rotationSpeed * Time.deltaTime);
         currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, moveSpeed, 5f * Time.deltaTime);

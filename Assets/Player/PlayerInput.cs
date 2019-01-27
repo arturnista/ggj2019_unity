@@ -6,7 +6,7 @@ public class PlayerInput : MonoBehaviour
 {
 
     [SerializeField]
-    private PlayerInputSchema inputSchema;
+    private PlayerInputSchema[] inputSchemas;
 
     private PlayerPowerUp playerPowerUp;
     private PlayerMovement playerMovement;
@@ -20,10 +20,12 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
 
-        playerMovement.HorizontalSpeed = Input.GetAxisRaw(inputSchema.Axis);
-        if(Input.GetKeyDown(inputSchema.Jump)) playerMovement.Jump();
+        foreach(PlayerInputSchema schema in inputSchemas) {
+            if(schema.Axis.Length > 0) playerMovement.HorizontalSpeed = Input.GetAxisRaw(schema.Axis);
+            if(Input.GetKeyDown(schema.Jump)) playerMovement.Jump();
 
-        if(Input.GetKeyDown(inputSchema.Pickup)) playerPowerUp.PickUpAction();
+            if(Input.GetKeyDown(schema.Pickup)) playerPowerUp.PickUpAction();
+        }
 
     }
 
